@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders missions correctly 1`] = `
+Array [
+  <h3>
+    My Mission
+  </h3>,
+  <div
+    className="list-group"
+    onKeyDown={[Function]}
+  >
+    <div
+      className="list-group-item"
+      data-rr-ui-event-key={null}
+      onClick={[Function]}
+    >
+      Thaicom
+    </div>
+  </div>,
+]
+`;
