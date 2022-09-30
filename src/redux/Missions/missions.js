@@ -6,6 +6,8 @@ const API = 'https://api.spacexdata.com/v3/missions';
 
 // Action Types
 const SHOW_MISSIONS = 'SHOW_MISSIONS';
+const JOINED_MISSIONS = 'JOINED_MISSIONS';
+const LEAVED_MISSIONS = 'LEAVED_MISSIONS';
 
 // Reducers
 const initialState = {
@@ -21,7 +23,19 @@ const missionReducer = (state = initialState, action) => {
         isLoading: false,
         missions: payload,
       };
+    case JOINED_MISSIONS:
+      return {
+        ...state,
+        isLoading: false,
+        missions: state.missions.map((mission) => (mission.mission_id !== payload ? mission : { ...mission, joined: true })),
+      };
 
+    case LEAVED_MISSIONS:
+      return {
+        ...state,
+        isLoading: false,
+        missions: state.missions.map((mission) => (mission.mission_id !== payload ? mission : { ...mission, joined: false })),
+      };
     default:
       return state;
   }
@@ -45,3 +59,17 @@ export const showMissions = createAsyncThunk(
     return args;
   },
 );
+
+export const joinedMissions = (id) => (dispatch) => {
+  dispatch({
+    type: JOINED_MISSIONS,
+    payload: id,
+  });
+};
+
+export const leavedMissions = (id) => (dispatch) => {
+  dispatch({
+    type: LEAVED_MISSIONS,
+    payload: id,
+  });
+};
