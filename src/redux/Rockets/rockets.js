@@ -6,6 +6,8 @@ const API = 'https://api.spacexdata.com/v3/rockets';
 
 // Action Types
 const SHOW_ROCKETS = 'SHOW_ROCKETS';
+const RESERVED_ROCKETS = 'RESERVED_ROCKETS';
+const CANCELED_ROCKETS = 'CANCELED_ROCKETS';
 
 // Reducers
 const initialState = {
@@ -20,6 +22,19 @@ const rocketReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         rockets: payload,
+      };
+    case RESERVED_ROCKETS:
+      return {
+        ...state,
+        isLoading: false,
+        rockets: state.rockets.map((rocket) => (rocket.id !== payload ? rocket : { ...rocket, reserved: true })),
+      };
+
+    case CANCELED_ROCKETS:
+      return {
+        ...state,
+        isLoading: false,
+        rockets: state.rockets.map((rocket) => (rocket.id !== payload ? rocket : { ...rocket, reserved: false })),
       };
     default:
       return state;
@@ -52,3 +67,16 @@ export const showRockets = createAsyncThunk(
   },
 );
 
+export const reservedRocket = (id) => (dispatch) => {
+  dispatch({
+    type: RESERVED_ROCKETS,
+    payload: id,
+  });
+};
+
+export const canceledRocket = (id) => (dispatch) => {
+  dispatch({
+    type: CANCELED_ROCKETS,
+    payload: id,
+  });
+};
