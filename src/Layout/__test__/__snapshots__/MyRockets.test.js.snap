@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders rockets correctly 1`] = `
+Array [
+  <h3>
+    My Rockets
+  </h3>,
+  <div
+    className="list-group"
+    onKeyDown={[Function]}
+  />,
+]
+`;
