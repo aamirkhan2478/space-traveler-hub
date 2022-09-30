@@ -6,14 +6,19 @@ import MissionPage from './Layout/pages/MissionPage';
 import ProfilePage from './Layout/pages/ProfilePage';
 import RocketPage from './Layout/pages/RocketPage';
 import { showRockets } from './redux/Rockets/rockets';
+import { showMissions } from './redux/Missions/missions';
 
 const App = () => {
   const dispatch = useDispatch();
   const getRocket = () => {
     dispatch(showRockets());
   };
+  const getMissions = () => {
+    dispatch(showMissions());
+  };
   useEffect(() => {
     getRocket();
+    getMissions();
   }, []);
 
   return (
