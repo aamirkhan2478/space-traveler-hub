@@ -1,0 +1,20 @@
+.image-size {
+  height: 50px;
+  width: 50px;
+}
+
+.active-link {
+  border-bottom: 1px solid blue;
+}
+
+.nav-link {
+  border-right: 3px solid blue;
+}
+
+.nav-link:first-child {
+  border-right: none;
+}
+
+.nav-link:last-child {
+  border-right: none;
+}
