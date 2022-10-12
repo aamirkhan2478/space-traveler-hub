@@ -1,6 +1,6 @@
 # Space Traveler's Hub
 
-This is simple react web application you can see new rockets and also reserved rockets. You can also see different missions and also join missions and also you can see you profile and check it how many missions you joined and how many rockets you reserved.
+This is simple react web application you can see new rockets and also reserved rockets. You can also see different missions and also join missions and also you can see you profile and check it how many missions you joined and how many rockets you reserved. 
 
 ## Built With
 
